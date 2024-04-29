@@ -1,0 +1,50 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    {% block contentTitle %}
+    {% endblock contentTitle %}
+    </title>
+
+    <link rel="stylesheet" type="text/CSS" href="{% static 'AppOneSDG/mystylesheetSDG.css' %}">
+    <link rel="stylesheet" type="text/CSS" href="{% static 'AppOneSDG/contactus.css' %}">
+    {% block extra_css %}{% endblock extra_css %}
+</head>
+
+
+<body>
+    <!-- this is a comment that will not be displayed-->
+    <!--An example of a simple web page.-->
+
+    <header>
+        {% include 'navbar_admin.html' %}
+    </header>
+
+    {% block contentBody %}
+    <div>
+        <h1>very New Home Page</h1>
+    </div>
+
+    <div>
+        {% for item in testdata %}
+        <div>
+            <h5>{{item.id}} ----- {{item.name}}</h5>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock contentBody %}
+
+    <footer>
+        <p>&copy; Copyright 2024. University of Westminster. All rights reserved.</p>
+    </footer>
+</body>
+
+
+</html>

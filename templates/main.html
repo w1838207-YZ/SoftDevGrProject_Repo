@@ -1,0 +1,41 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    {% block contentTitle %}
+    {% endblock contentTitle %}
+    </title>
+
+    {% block extra_css %}
+
+    <link rel="stylesheet" type="text/CSS" href="{% static 'AppOneSDG/mystylesheetSDG.css' %}">
+    
+    {% endblock extra_css %}
+</head>
+
+
+<body>
+    <!-- this is a comment that will not be displayed-->
+    <!--An example of a simple web page.-->
+
+    <header>
+        {% include 'navbar.html' %}
+    </header>
+
+    {% block contentBody %}
+    {% endblock contentBody %}
+
+    <footer>
+        <p>&copy; Copyright 2024. University of Westminster. All rights reserved.</p>
+    </footer>
+</body>
+
+
+</html>
