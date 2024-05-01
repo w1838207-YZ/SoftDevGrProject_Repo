@@ -1,0 +1,63 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block contentTitle %}
+    {% endblock contentTitle %}
+
+    <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/mystylesheetSDG.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+    {% block extra_css %}
+    {% endblock extra_css %}
+</head>
+
+
+<body>
+    <!-- this is a comment that will not be displayed-->
+    <!--An example of a simple web page.-->
+
+    <header><!--This django code will decide which navigation bar is displayed to a given user-->
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                {% include 'navbar_admin.html' %}
+            {% else %}
+                {% include 'navbar_user.html' %}
+            {% endif %}
+        {% else %}
+            {% include 'navbar.html' %}
+        {% endif %}
+    </header>
+
+    {% block contentBody %}
+    {% endblock contentBody %}
+
+    <footer>
+        <p>&copy; Copyright 2024. University of Westminster. All rights reserved.</p>
+    </footer>
+
+    <script>/*This javascript code is what makes the navigation bar(s) responsive in design*/
+        navToggleBtn = document.querySelector('.navToggleBtn');
+        navLinks = document.querySelector('.navLinks');
+        navToggleBtn.onclick = function() {
+            navLinks.classList.toggle('dropdownOpen');
+            navToggleBtn.classList.toggle('dropdownOpen');
+        }
+    </script>
+</body>
+
+
+</html>

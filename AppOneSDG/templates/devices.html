@@ -1,0 +1,272 @@
+
+{% extends 'main.html' %}
+
+
+{% block contentTitle %}
+    <title>Contact Us</title>
+{% endblock contentTitle %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/mystylesheetSDG.css">
+    <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/contact-us.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>
+
+        .links {
+            display:inline-block;
+            
+            width: 167px;
+            height: 61px;
+            background: #020077;
+            color: white;
+            font-weight:bold;
+            font-family: "Montserrat";
+            margin-left: 10px;
+            padding-top: 20px;
+            text-align:center;
+            
+            
+            }
+            
+            .links:hover{
+                background: #5899E2;
+            }
+            
+            #links {
+            margin-left: 45px;
+            }
+
+            #currentBooking,td,tr,th{
+                border: 1px solid black;
+               }
+
+            input::placeholder{
+                font-size:18px;
+            }
+            
+    
+    
+    
+    
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+{% endblock extra_css %}
+
+
+{% block contentBody %}
+
+<div class = "wrapper">
+
+<div class = "overlay">
+
+<div class = "text">
+
+<h1 id = "intro">Devices Inventory </h1>
+
+</div>
+</div>
+</div>
+</div>
+
+<br>
+<br>
+
+<h1 class = "title">Devices Inventory
+
+<div>
+    <button class = "bookingApprove" style = "background:green;font-weight:bold; float:right;margin-right:40px;margin-bottom:50px;">Generate Report</button>
+    <a href = "/addProduct"><button class = "bookingApprove" style = "background:green;font-weight:bold; float:right;margin-right:40px;margin-bottom:50px;">Add Product</button></a>
+</div>
+
+</h1>
+<br><br><br><br>
+
+<form method = "GET" action="/action_page.php">
+    <input type="search" id="gsearch" name="gsearch" placeholder = "Search the device you want to borrow by ID, Asset Tab, name or type" style = "width:701px;text-size:100px; height:40px;margin-left:500px;">
+
+</form>
+
+<br><br><br><br>
+
+<table style = "width:100%" id = "currentBooking">
+<tr>
+<th>Device ID</th>
+<th>Device Name</th>
+<th>Device Description</th>
+<th>Device Type</th>
+<th> Quantity</th>
+<th> Actions</th>
+
+</tr>
+
+
+<!--Blank Row 1     [These blank rows were created when first implementing the table statically]
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+    
+<button class = "bookingApprove" style = "background:green;font-weight:bold;">Book Now</button>
+
+
+
+</td>
+</tr>
+
+
+<!--Blank Row 2
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+    
+        <button class = "bookingApprove" style = "background:green;font-weight:bold;">Book Now</button>
+        
+        
+        
+        </td>
+    </tr>
+
+<!--Blank Row 3
+
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <button class = "bookingApprove" style = "background:green;font-weight:bold;">Book Now</button>
+            
+            
+            </td>
+        </tr>
+
+<!--Blank Row 4
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <button class = "bookingApprove" style = "background:green;font-weight:bold;">Book Now</button>
+        
+        
+        
+        </td>
+    </tr>
+
+<!--Blank Row 5
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+
+    <button class = "bookingApprove" style = "background:green;font-weight:bold;">Book Now</button>
+    
+    
+    </td>
+</tr>-->
+
+
+
+<!--This django code dynamically populates this table with Equipment records from our database-->
+{% for equipmentItem in equipments %}
+<tr>
+    <td>{{equipmentItem.equipId}}</td>
+    <td>{{equipmentItem.equipName}}</td>
+    <td>{{equipmentItem.equipComments}}</td>
+    <td>{{equipmentItem.equipType}}</td>
+    <td>{{equipmentItem.equipQuantity}}</td>
+    <td>
+        <button class = "bookingApprove" style = "background:green;font-weight:bold;">Book Now</button>
+    </td>
+</tr>
+{% endfor %}
+
+
+
+
+</table>
+
+
+
+
+<br><br><br><br>
+
+<!--<h1 class = "title"> Inventory Count </h1>
+
+<br><br><br>
+
+<table style = "width:100%" id = "currentBooking">
+<tr>
+<th>Equipment</th>
+<th>Overdue Equipment</th>
+<th>VR Headset</th>
+<th>VR Controller</th>
+<th>PC/Laptop</th>
+<th>Phone/Tablets</th>
+
+</tr>
+
+
+<!--Blank Row 1--
+
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+
+
+
+</table>
+
+<br><br><br>-->
+
+
+{% endblock contentBody %}
+
+<!--[This function does not work here, but is implemented functionally in 'main.html']-->
+<script>
+
+ hamburger = document.querySelector(".hamburger");
+ hamburger.onclick = function(){
+    navBar = document.querySelector(".nav-bar");
+    navBar.classList.toggle("active");
+ }
+
+
+</script>
+
+    
+
+
+</body>
+
+</html>
