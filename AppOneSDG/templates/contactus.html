@@ -1,0 +1,225 @@
+{% extends 'main.html' %}
+
+
+{% block contentTitle %}
+    <title>Contact Us</title>
+{% endblock contentTitle %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/contact-us.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+{% endblock extra_css %}
+
+
+{% block contentBody %}
+
+
+<div class = "wrapper">
+
+<div class = "overlay">
+
+<div class = "text">
+
+<h1 id = "intro" style = "margin-left:400px;font-size:60px;">Contact Us </h1>
+
+</div>
+</div>
+</div>
+</div>
+
+<br>
+<br>
+<h1 class = "title">Contact UOW Technical Team </h1>
+<p style = "margin:50px;margin-top:30px;margin-left:370px;font-family:'Montserrat';">Please fill out the form and a member from the IT department will get back to you as soon as possible. </p>
+
+<div class = "container">
+<form method = "POST" name = "myForm" onsubmit = "return validateForm()">
+
+  {% csrf_token %}
+
+<div class = "contact-box">
+
+<div class = "contact-left">
+
+<h3> Send your request</h3>
+
+<div class = "input-row">
+
+<div class="input-group">
+
+<!---Full Name field -->
+
+<label> Full Name </label>
+<input type = "text" placeholder = "Please enter your first name" name = "firstName" onsubmit = "return validateForm()" />
+
+</div>
+
+<div class="input-group">
+
+        <label> Last Name </label>
+        <input type = "text" placeholder = "Please enter your last name" name = "lastName" onsubmit = "return validateForm()" />
+        
+        </div>
+
+    
+
+</div>
+
+<div class = "input-row">
+
+    <div class="input-group">
+    
+    
+    
+    <label> Email Address </label>
+    <input type = "text" placeholder = "Please enter your email address" name = "emailAddress" onsubmit = "return validateForm()"/>
+    
+    </div>
+    
+    <div class="input-group">
+    
+            <label> Telephone Number </label>
+            <input type = "text" placeholder = "Please enter your tel number" name = "telephoneNumber" onsubmit = "return validateForm()"/>
+            
+            </div>
+    
+        
+    
+    </div>
+
+    <label>Message</label>
+    <textarea rows = "5" placeholder = "How can we help you?" name = "message"></textarea>
+    <button type = "submit" value = "Send Message"  id = "button" onsubmit = "return validateForm()"> Send Message</button>
+    
+
+
+
+
+
+
+</div>
+</form>
+
+<div class = "contact-right">
+
+<h3> Reach Us </h3>
+<br>
+
+<table id = "contactTable">
+
+<tr>
+<td>IT Department Email:</td>
+<td>servicedesk@westminster.ac.uk</td>
+</tr>
+
+<tr>
+    <td>Telephone Number:</td>
+    <td>       
+       020 7911 5000</td>
+    </tr>
+
+
+    <tr>
+        <td>Helpdesk Ticket:</td>
+	<td><a href ="https://my.westminster.edu/ics/Help/" style = "text-decoration:underline;">Log a HelpDesk Ticket</a></td>
+        </tr>
+		
+	<tr>
+        <td>Address:</td>
+        <a href ="https://my.westminster.edu/ics/Help/"><td>115 New Cavendish Street</td></a>
+        </tr>
+
+
+</table>
+
+</div>
+
+
+</div>
+</div>
+
+{% endblock contentBody %}
+
+<!--[This function does not work here, but is implemented functionally in 'main.html']-->
+<script>
+
+    hamburger = document.querySelector(".hamburger");
+    hamburger.onclick = function(){
+       navBar = document.querySelector(".nav-bar");
+       navBar.classList.toggle("active");
+    }
+   
+    function validateForm() {
+       let firstName = document.forms["myForm"]["firstName"].value;
+       let lastName = document.forms["myForm"]["lastName"].value;
+       let emailAddress = document.forms["myForm"]["emailAddress"].value;
+       let password = document.forms["myForm"]["password"].value;
+       let telephoneNumber = document.forms["myForm"]["telephoneNumber"].value;
+       let message = document.forms["myForm"]["message"].value;
+       
+       if (firstName == "") {
+         alert("You must fill in your first name!");
+         return false;
+         
+       }
+       
+       else if(lastName == "") {
+       
+        alert("You must fill in your last name!");
+         return false;
+       
+       
+       }
+       
+       else if(password == "") {
+       
+        alert("You must fill in your existing password!");
+         return false;
+         
+       }
+       
+       else if(telephoneNumber == "") {
+       
+        alert("You must fill in your telephone number!");
+         return false;
+       
+       }
+
+
+       else if(message == "") {
+       
+        alert("You must fill in a message!");
+         return false;
+       
+       }
+       
+       
+       
+       
+       
+       
+     }
+
+     function abc(){
+      alert("Hello there");
+     }
+
+     document.getElementById("button").addEventListener("click",abc);
+   
+   
+   </script>
+   
+    
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

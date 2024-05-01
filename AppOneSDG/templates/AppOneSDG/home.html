@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+
+{% block contentTitle %}
+    <title>Title of the home page</title>
+{% endblock contentTitle%}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/home_style.css">
+{% endblock extra_css %}
+
+
+{% block contentBody %}
+    <div class="wrapper">
+        <div class="overlay">
+            <div class="text">
+                <h1 id="intro">Welcome To Westminster Inventory</h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container_home">
+        <div class="featured-devices">
+            <h2>Featured Devices</h2>
+            <div class="device">
+                <img src="/static/AppOneSDG/device1.svg" alt="Device 1">
+                <h3>Valve Index Headset</h3>
+                <p>Valve Index is a VR system that offers superior displays, optics, audio, and comfort. It works with any Steam VR compatible title and is available as a complete kit or individually.</p>
+                <a href="#" class="btn">View Product</a>
+            </div>
+            <div class="device">
+                <img src="/static/AppOneSDG/device2.svg" alt="Device 2">
+                <h3>AERO Laptop</h3>
+                <p>The Gigabyte Aero 15 X9 has powerful graphics, a beautiful screen and fast storage, but keep it plugged in and never use the webcam. At 4.7 pounds (2.1 kg) the Aero 15 has gained some weight since last year's model.</p>
+                <a href="#" class="btn">View Product</a>
+            </div>
+            <div class="device">
+                <img src="/static/AppOneSDG/device3.svg" alt="Device 3">
+                <h3>Xbox Kinect 1</h3>
+                <p>Kinect is a motion sensor input device from Microsoft. The device includes an infrared depth sensing camera, an RGB color camera, and a microphone array for audio capture.</p>
+                <a href="#" class="btn">View Product</a>
+            </div>
+        </div>
+    </div>
+{% endblock contentBody %}
