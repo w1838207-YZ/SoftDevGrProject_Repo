@@ -23,6 +23,9 @@ urlpatterns = [
     path('addProduct/', views.addProduct, name='addProduct'),
     path('updateProduct/', views.updateProduct, name='updateProduct'),
     path('devicesInventory/', views.devicesInventory, name='devicesInventory'),
+    path('productOverview/', views.productOverview, name='productOverview'),
+    path('productOverview2/', views.productOverview2, name='productOverview2'),
+    path('productOverview3/', views.productOverview3, name='productOverview3'),
     
     #User web pages
     path('mainUser/', views.main_user, name='mainUser'),
@@ -31,6 +34,9 @@ urlpatterns = [
     path('currentBookings/', views.currentBookings, name='currentBookings'),
     path('updateAccountInformation/', views.updateAccountInformation, name='updateAccountInformation'),
     path('bookingsHistory/', views.bookingsHistory, name='bookingsHistory'),
+    path('productOverview/', views.productOverview, name='productOverview'),
+    path('productOverview2/', views.productOverview, name='productOverview2'),
+    path('productOverview3/', views.productOverview, name='productOverview3')
     
     
     

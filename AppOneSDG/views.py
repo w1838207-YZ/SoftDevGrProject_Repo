@@ -130,6 +130,7 @@ def manageBookings(request):
 
 
 def manageUsers(request):
+    
     return render(request,"manageUsers.html")
 
 
@@ -156,3 +157,12 @@ def addProduct(request):
 
 def updateProduct(request):
     return render(request,"updateProduct.html")
+
+def productOverview(request):
+    return render(request,"productOverview.html")
+
+def productOverview2(request):
+    return render(request,"productOverview2.html")
+
+def productOverview3(request):
+    return render(request,"productOverview3.html")
