@@ -1,19 +1,20 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as log_views
 
 
 urlpatterns = [
     
     #General web pages
-    
-    path('', views.home),
+    path('', views.home, name='home'),
     path('blist/', views.blist),
     path('navbar/', views.navbar),
-    path('login/', views.user_login, name='login'),
-    path('admin_login/', views.user_admin_login, name='admin_login'),
+    path('login/', log_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('admin_login/', log_views.LoginView.as_view(template_name='admin_login.html'), name='admin_login'),
     path('sign_up/', views.user_sign_up, name='sign_up'),
     path('forgot_password/', views.forgot_password, name='forgot_password'),
     path('contactus/', views.contact_us, name='contactus'),
+    path('logout/', log_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     
     #Admin web pages
     path('mainAdmin/', views.main_admin, name='mainAdmin'),
@@ -22,8 +23,6 @@ urlpatterns = [
     path('addProduct/', views.addProduct, name='addProduct'),
     path('updateProduct/', views.updateProduct, name='updateProduct'),
     path('devicesInventory/', views.devicesInventory, name='devicesInventory'),
-    
-    
     
     #User web pages
     path('mainUser/', views.main_user, name='mainUser'),

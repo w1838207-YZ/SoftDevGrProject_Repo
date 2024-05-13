@@ -7,7 +7,6 @@
 {% endblock contentTitle %}
 
 {% block extra_css %}
-    <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/mystylesheetSDG.css">
     <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/contact-us.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <style>
@@ -92,7 +91,7 @@
 <table style = "width:100%" id = "currentBooking">
 <tr>
 <th>Device ID</th>
-<th>Device Image</th>
+<!--<th>Device Image</th>-->
 <th>Device Name</th>
 <th>Device Description</th>
 <th>Device Type</th>
@@ -102,7 +101,7 @@
 </tr>
 
 
-<!--Blank Row 1-->
+<!--Blank Row 1     [These blank rows were created when first implementing the table statically]
 
 <tr>
 <td></td>
@@ -121,7 +120,7 @@
 </tr>
 
 
-<!--Blank Row 2-->
+<!--Blank Row 2
 
 <tr>
     <td></td>
@@ -139,7 +138,7 @@
         </td>
     </tr>
 
-<!--Blank Row 3-->
+<!--Blank Row 3
 
 
     <tr>
@@ -156,7 +155,7 @@
             </td>
         </tr>
 
-<!--Blank Row 4-->
+<!--Blank Row 4
 
 <tr>
     <td></td>
@@ -173,7 +172,7 @@
         </td>
     </tr>
 
-<!--Blank Row 5-->
+<!--Blank Row 5
 
 <tr>
 <td></td>
@@ -188,7 +187,23 @@
     
     
     </td>
+</tr>-->
+
+
+
+<!--This django code dynamically populates this table with Equipment records from our database-->
+{% for equipmentItem in equipments %}
+<tr>
+    <td>{{equipmentItem.equipId}}</td>
+    <td>{{equipmentItem.equipName}}</td>
+    <td>{{equipmentItem.equipComments}}</td>
+    <td>{{equipmentItem.equipType}}</td>
+    <td>{{equipmentItem.equipQuantity}}</td>
+    <td>
+        <button class = "bookingApprove" style = "background:green;font-weight:bold;">Book Now</button>
+    </td>
 </tr>
+{% endfor %}
 
 
 
@@ -237,7 +252,7 @@
 
 {% endblock contentBody %}
 
-
+<!--[This function does not work here, but is implemented functionally in 'main.html']-->
 <script>
 
  hamburger = document.querySelector(".hamburger");

@@ -6,7 +6,6 @@
 {% endblock contentTitle %}
 
 {% block extra_css %}
-    <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/mystylesheetSDG.css">
     <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/contact-us.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <style>
@@ -73,7 +72,7 @@
 <a href = "/currentBookings"><div class = "links">Current Bookings</div></a>
 <a href = "/bookingsHistory"><div class = "links">Bookings History</div></a>
 
-<a href = "/"><div class = "links">Log out</div></a>
+<a href = "/logout/"><div class = "links">Log out</div></a>
 <a href = "/contactus"><div class = "links"> Contact us</div></a>
 <a href = "/sitemap"><div class = "links"> Sitemap</div></a>
 <a href = "/updateAccountInformation"><div class = "links"> Update Information</div></a>
@@ -89,7 +88,7 @@
 
 {%endblock contentBody%}
 
-
+<!--[This function does not work here, but is implemented functionally in 'main.html']-->
 <script>
 
  hamburger = document.querySelector(".hamburger");

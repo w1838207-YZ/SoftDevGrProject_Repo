@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.conf import settings
 
+from .models import Equipment, Reservation
+
 # Create your views here.
 
 testdata = [
@@ -117,12 +119,14 @@ def updateAccountInformation(request):
     return render(request,"updateAccountInformation.html")
 
 
-def devices(request):
-    return render(request,"bookingsHistory.html")
+#def devices(request):
+    #return render(request,"bookingsHistory.html")
 
 
 def manageBookings(request):
-    return render(request,"manageBookings.html")
+    reservationsToApprove = Reservation.objects.all()
+    context = {'reservationsToApprove' : reservationsToApprove}
+    return render(request, "manageBookings.html", context)
 
 
 def manageUsers(request):
@@ -137,10 +141,14 @@ def main_user(request):
 
 
 def devices(request):
-    return render(request,"devices.html")
+    equipments = Equipment.objects.all()
+    context = {'equipments' : equipments}
+    return render(request, "devices.html", context)
 
 def devicesInventory(request):
-    return render(request,"devices_admin.html")
+    equipments = Equipment.objects.all()
+    context = {'equipments' : equipments}
+    return render(request,"devices_admin.html", context)
 
 def addProduct(request):
     return render(request,"addProduct.html")
@@ -148,12 +156,3 @@ def addProduct(request):
 
 def updateProduct(request):
     return render(request,"updateProduct.html")
-
-
-
-
-
-    
-       
-
-

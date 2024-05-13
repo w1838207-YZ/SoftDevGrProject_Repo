@@ -133,7 +133,7 @@ class Admin(models.Model):
 class Reservation(models.Model):
     reservationId       = models.AutoField(verbose_name='Reservation ID', primary_key=True)
     reservationStatus   = models.CharField(verbose_name='Status of reservation', max_length=100)
-    reservationDate     = models.DateField(verbose_name='Date of reservation', auto_now_add=True)
+    reservationDate     = models.DateField(verbose_name='Date of reservation')
     returnDate          = models.DateField(verbose_name='Return date for reservation')
     reservationNotes    = models.TextField(verbose_name='Notes about reservation', blank=True)
     userId              = models.ForeignKey(User, related_name='users_who_place_reservations', on_delete=models.CASCADE, null=False, verbose_name='Corresponding user ID')

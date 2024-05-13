@@ -1,42 +1,132 @@
-header {
-    background-color: #000044;/*rgb(255, 128, 255);*/
-}
-
-#navLinks {
-    float: right;
-}
-
 * {
-    list-style: none;
-    text-decoration: none;
     margin: 0;
     padding: 0;
-    font-family: "Montserrat";
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
 
 
-#navLinks ul {
+body {
+    background: white;
+}
+
+
+header {
+    width: 100%;
+    height: 80px;
+    background: #000044;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+
+#navLogo {
+    margin-top: 8px;
+}
+
+
+.navToggleBtn {
+    display: none;
+}
+
+
+.navLinks ul {
     display: flex;
 }
 
-#navLinks ul li a {
+
+.navLinks ul li a {
     display: block;
     color: white;
-    /*font-weight: bold;*/
-    font-size: 20px;
+    font-size: 15px;
     padding: 10px 25px;
-    border-radius: 50px;
+    border-radius: 10px;
     transition: 0.5s;
-    margin: 30px 15px;
+    margin: 0 10px;
+    font-weight: 500;
+    text-align: center;
 }
 
-#navLinks ul li a:hover {
+
+.navLinks ul li a:hover {
     background: #5899E2;
 }
 
-#navLogo {
-    margin-left: 30px;
+
+.navLinks ul li a.active {
+    background: #5899E2;
 }
+
+
+@media (max-width: 990px) {
+    .navToggleBtn {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navToggleBtn .hamburgerLine {
+        width: 30px;
+        height: 3px;
+        background: white;
+        margin: 6px 0;
+        display: block;
+    }
+
+    .navToggleBtn i {
+        display: none;
+    }
+
+    .navLinks {
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #000044;
+        transition: 0.5s;
+        overflow: hidden;
+        z-index: 40;
+    }
+
+    .navLinks.dropdownOpen {
+        height: 450px;
+    }
+
+    .navLinks ul {
+        display: block;
+        width: fit-content;
+        margin: 80px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    
+    .navLinks.dropdownOpen ul {
+        opacity: 1;
+    }
+
+    .navLinks ul li a {
+        margin-bottom: 12px;
+    }
+
+    .navToggleBtn.dropdownOpen .hamburgerLine {
+        display: none;
+    }
+
+    .navToggleBtn.dropdownOpen i {
+        display: block;
+        color: white;
+        font-size: 30px;
+        align-items: center;
+    }
+}
+
+
 
 .login-container {
     width: 400px;
@@ -227,5 +317,17 @@ footer {
 /* Contact Us Page Code Styling */
 
 
+footer {
+    background: #000044;
+    color: white;
+    padding: 3px 0px;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
 
-
+footer p {
+    padding: 4px;
+}
