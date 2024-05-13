@@ -6,7 +6,6 @@
 {% endblock contentTitle %}
 
 {% block extra_css %}
-    <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/mystylesheetSDG.css">
     <link rel="stylesheet" type="text/CSS" href="/static/AppOneSDG/contact-us.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 {% endblock extra_css %}
@@ -30,13 +29,12 @@
 
 <br>
 <br>
+{% csrf_token %}
 <h1 class = "title">Contact UOW Technical Team </h1>
 <p style = "margin:50px;margin-top:30px;margin-left:370px;font-family:'Montserrat';">Please fill out the form and a member from the IT department will get back to you as soon as possible. </p>
 
 <div class = "container">
-<form method = "POST" name = "myForm" onsubmit = "return validateForm()">
-
-  {% csrf_token %}
+<form name="myForm" action="mailto:w1907294@my.westminster.ac.uk?subject=Service Desk Request&amp;cc=w1907294@my.westminster.ac.uk,w1838207@my.westminster.ac.uk,w1910020@my.westminster.ac.uk,w1942901@my.westminster.ac.uk,w1827027@my.westminster.ac.uk" enctype="text/plain" method="POST" id="form" onsubmit="return validateForm()">
 
 <div class = "contact-box">
 
@@ -50,15 +48,15 @@
 
 <!---Full Name field -->
 
-<label> Full Name </label>
-<input type = "text" placeholder = "Please enter your first name" name = "firstName" onsubmit = "return validateForm()" />
+<label> First Name </label>
+<input type = "text" placeholder = "Please enter your first name" name = "firstName" onsubmit = "return validateForm()" required />
 
 </div>
 
 <div class="input-group">
 
         <label> Last Name </label>
-        <input type = "text" placeholder = "Please enter your last name" name = "lastName" onsubmit = "return validateForm()" />
+        <input type = "text" placeholder = "Please enter your last name" name = "lastName" onsubmit = "return validateForm()" required />
         
         </div>
 
@@ -73,14 +71,14 @@
     
     
     <label> Email Address </label>
-    <input type = "text" placeholder = "Please enter your email address" name = "emailAddress" onsubmit = "return validateForm()"/>
+    <input type = "text" placeholder = "Please enter your email address" name = "emailAddress" onsubmit = "return validateForm()" required/>
     
     </div>
     
     <div class="input-group">
     
             <label> Telephone Number </label>
-            <input type = "text" placeholder = "Please enter your tel number" name = "telephoneNumber" onsubmit = "return validateForm()"/>
+            <input type = "text" placeholder = "Please enter your tel number" name = "telephoneNumber" onsubmit = "return validateForm()" required/>
             
             </div>
     
@@ -89,7 +87,7 @@
     </div>
 
     <label>Message</label>
-    <textarea rows = "5" placeholder = "How can we help you?" name = "message"></textarea>
+    <textarea rows = "5" placeholder = "How can we help you?" name = "message" required/></textarea>
     <button type = "submit" value = "Send Message"  id = "button" onsubmit = "return validateForm()"> Send Message</button>
     
 
@@ -141,7 +139,7 @@
 
 {% endblock contentBody %}
 
-
+<!--[This function does not work here, but is implemented functionally in 'main.html']-->
 <script>
 
     hamburger = document.querySelector(".hamburger");
@@ -201,11 +199,7 @@
        
      }
 
-     function abc(){
-      alert("Hello there");
-     }
-
-     document.getElementById("button").addEventListener("click",abc);
+     
    
    
    </script>
